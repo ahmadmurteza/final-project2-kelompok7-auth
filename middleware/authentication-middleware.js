@@ -2,7 +2,8 @@ const { verify } = require("./../helpers/jwt");
 const { User } = require("./../models/index");
 
 async function authenticationMiddleware(req, res, next) {
-	const  {authorization}  = req.headers;
+	const  {authorization}  = req.headers || '';
+	
 	const token = authorization.split("Bearer ");
 	try {
 		if (token.length !== 2) throw { name: "InvalidToken" };
