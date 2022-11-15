@@ -4,6 +4,6 @@
 2. **Diory Pribadi Sinaga**
 3. **Siti Sofiani**
 
-### LINK Railway
-# branch yang di upload adalah branch upload bukan main
+# LINK Railway
+#### branch yang di push ke railway adalah branch upload bukan branch main
 https://final-project2-kelompok7-auth-production.up.railway.app/
