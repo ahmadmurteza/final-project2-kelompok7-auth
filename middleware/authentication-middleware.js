@@ -6,7 +6,7 @@ async function authenticationMiddleware(req, res, next) {
 	if (authorization) {
 		const token = authorization.split("Bearer ");	
 	} else {
-		token = '';
+		const token = '';
 	}
 	try {
 		if (token.length !== 2) throw { name: "InvalidToken" };
