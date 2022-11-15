@@ -3,11 +3,7 @@ const { User } = require("./../models/index");
 
 async function authenticationMiddleware(req, res, next) {
 	const  {authorization}  = req.headers;
-	if (authorization) {
-		const token = authorization.split("Bearer ");	
-	} else {
-		const token = '';
-	}
+	const token = authorization && authorization.split("Bearer ");
 	try {
 		if (token.length !== 2) throw { name: "InvalidToken" };
 		const { id, email } = verify(token[1]);
