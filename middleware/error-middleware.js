@@ -30,12 +30,15 @@ function errorMiddleware(err, req, res, next) {
 		message = err.errors.map((err) => {
 			return err.message;
 		});
-	}else if(err.name==="not allowed"){
-		code=403
-		message="Anda Tidak Diijinkan!!"
+	} else if (err.name === "not allowed") {
+		code = 403
+		message = "Anda Tidak Diijinkan!!"
 	} else if (err.name === "PageNotFound") {
 		code = 404;
 		message = "Oops... nothing here";
+	} else if (err.name === "username or email cannot blank") {
+		code = 403
+		message = err.name
 	} else {
 		code = 500;
 		message = "Internal server error";
