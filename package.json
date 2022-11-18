@@ -6,7 +6,8 @@
   "scripts": {
     "createdb": "npx sequelize db:create",
     "migrate": "npx sequelize db:migrate",
-    "start": "nodemon app.js",
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
