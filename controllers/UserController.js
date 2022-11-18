@@ -5,7 +5,8 @@ const { sign } = require("./../helpers/jwt");
 class UsersController {
 	static async signIn(req, res, next) {
 		try {
-			const {email, password} = req.body;
+			const { email = null, password = null } = req.body;
+			if (!email || !password) throw { name: "username or email cannot blank" }
 			const user = await User.findOne({where: {email}});
 
 			if (!user) {

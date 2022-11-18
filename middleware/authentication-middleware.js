@@ -5,6 +5,7 @@ async function authenticationMiddleware(req, res, next) {
 	const  {authorization}  = req.headers;
 	const token = authorization && authorization.split("Bearer ");
 	try {
+		if (!token) throw { name: "InvalidToken" }
 		if (token.length !== 2) throw { name: "InvalidToken" };
 		const { id, email } = verify(token[1]);
 		const user = await User.findOne({ where: { id, email } });

@@ -36,7 +36,10 @@ function errorMiddleware(err, req, res, next) {
 	} else if (err.name === "PageNotFound") {
 		code = 404;
 		message = "Oops... nothing here";
-	} else {
+	} else if (err.name === "username or email cannot blank") {
+		code = 403
+		message = err.name
+	}  else {
 		code = 500;
 		message = "Internal server error";
 	}
